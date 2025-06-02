@@ -1,1 +1,116 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sintetitzador Web</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;900&family=DM+Sans:wght@400;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
 
+  <h1>Sintetitzador Web</h1>
+
+  <div class="layout">
+    
+    <!-- 🎹 Piano al centre -->
+    <div class="piano">
+      <!-- Tecles blanques -->
+      <div class="white-key key" data-note="C"></div>
+      <div class="white-key key" data-note="D"></div>
+      <div class="white-key key" data-note="E"></div>
+      <div class="white-key key" data-note="F"></div>
+      <div class="white-key key" data-note="G"></div>
+      <div class="white-key key" data-note="A"></div>
+      <div class="white-key key" data-note="B"></div>
+
+      <!-- Tecles negres -->
+      <div class="black-key key" data-note="C#"></div>
+      <div class="black-key key" data-note="D#"></div>
+      <div class="black-key key" data-note="F#"></div>
+      <div class="black-key key" data-note="G#"></div>
+      <div class="black-key key" data-note="A#"></div>
+    </div>
+
+    <!-- 🎛️ Controls compactats -->
+    <div class="controls-panel">
+      <div>
+        <label for="waveform">Waveform</label>
+        <select id="waveform">
+          <option value="sine">Sine</option>
+          <option value="square">Square</option>
+          <option value="triangle">Triangle</option>
+          <option value="sawtooth">Sawtooth</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="gain">Gain</label>
+        <input type="range" id="gain" min="0" max="1" step="0.01" value="0.8"/>
+      </div>
+
+      <div>
+        <label for="attack">Attack</label>
+        <input type="range" id="attack" min="0" max="2" step="0.01" value="0.1"/>
+      </div>
+
+      <div>
+        <label for="decay">Decay</label>
+        <input type="range" id="decay" min="0" max="2" step="0.01" value="0.2"/>
+      </div>
+
+      <div>
+        <label for="sustain">Sustain</label>
+        <input type="range" id="sustain" min="0" max="1" step="0.01" value="0.7"/>
+      </div>
+
+      <div>
+        <label for="release">Release</label>
+        <input type="range" id="release" min="0" max="3" step="0.01" value="1.0"/>
+      </div>
+
+      <div>
+        <label for="filterType">Filter type</label>
+        <select id="filterType">
+          <option value="lowpass">Low-pass</option>
+          <option value="highpass">High-pass</option>
+          <option value="bandpass">Band-pass</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="filterFreq">Filter frequency</label>
+        <input type="range" id="filterFreq" min="100" max="10000" step="1" value="1000"/>
+      </div>
+
+      <div>
+        <label for="pan">Panning</label>
+        <input type="range" id="pan" min="-1" max="1" step="0.01" value="0"/>
+      </div>
+
+      <div>
+        <label for="delayTime">Delay</label>
+        <input type="range" id="delayTime" min="0" max="1" step="0.01" value="0.2"/>
+      </div>
+
+      <div>
+        <label for="feedback">Feedback</label>
+        <input type="range" id="feedback" min="0" max="0.95" step="0.01" value="0.4"/>
+      </div>
+
+      <div style="grid-column: span 2; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+        <button id="upOctave">+ Octave</button>
+        <button id="downOctave">- Octave</button>
+        <button id="upSemitone">+ ½ Tone</button>
+        <button id="downSemitone">- ½ Tone</button>
+      </div>
+    </div>
+
+    <!-- 📈 Oscilloscope -->
+    <canvas id="oscilloscope" width="600" height="200"></canvas>
+
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
