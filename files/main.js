@@ -227,24 +227,7 @@ const keyMap = {
 // Per evitar repeticions
 const activeKeys = new Set();
 
-// Teclat físic
-document.addEventListener("keydown", e => {
-  if (!isPlaying) return;
-  const note = keyMap[e.key];
-  if (note && !activeKeys.has(e.key)) {
-    activeKeys.add(e.key);
-    playNote(note);
-    highlightKey(note);
-  }
-});
 
-document.addEventListener("keyup", e => {
-  const note = keyMap[e.key];
-  if (note) {
-    activeKeys.delete(e.key);
-    unhighlightKey(note);
-  }
-});
 
 // Click al piano virtual
 const pressedKeys = new Set();
@@ -266,6 +249,32 @@ document.addEventListener("keyup", e => {
     highlightKey(note, false);
     pressedKeys.delete(e.key);
   }
+});
+
+// 🎹 Clic amb el ratolí sobre les tecles virtuals
+document.querySelectorAll(".key").forEach(key => {
+  key.addEventListener("mousedown", () => {
+    const note = key.dataset.note;
+    if (note) {
+      playNote(note);
+      highlightKey(note, true);
+    }
+  });
+
+  key.addEventListener("mouseup", () => {
+    const note = key.dataset.note;
+    if (note) {
+      highlightKey(note, false);
+    }
+  });
+
+  // Per si arrossegues i deixes anar fora
+  key.addEventListener("mouseleave", () => {
+    const note = key.dataset.note;
+    if (note) {
+      highlightKey(note, false);
+    }
+  });
 });
 
 // Funció per ressaltar visualment la tecla
