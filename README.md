@@ -1,4 +1,4 @@
-# 🎹 MiniSynth
+# 🎹 easySynth
 
 Aquesta aplicació web és un sintetitzador interactiu fet amb JavaScript, Web Audio API i suport per teclat i dispositius MIDI.
 
