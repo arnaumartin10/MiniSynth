@@ -4,10 +4,10 @@ Aquesta aplicació web és un sintetitzador interactiu fet amb JavaScript, Web A
 
 ## 🔗 Versió online
 
-Disponible a: [https://arnaumartin10.github.io/MiniSynth/]([https://elTeuUsuari.github.io/sintetitzador-web](https://arnaumartin10.github.io/MiniSynth/))
+Disponible a: [https://arnaumartin10.github.io/easySynth/]( https://arnaumartin10.github.io/easySynth/))
 
 ## 🚀 Com executar-ho localment
 
 1. Clona el repositori:
    ```bash
-   git clone https://github.com/arnaumartin10/MiniSynth.git
+   git clone https://github.com/arnaumartin10/easySynth.git
